@@ -1,0 +1,1220 @@
+<!-- 
+*Rough Work(;-))*
+see the number in Whatsapp,the back span should also be white along with its hover effect(create another class)navigator.share shoud be implemented Gl add for mobile too.:->>>>>>>>-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body{
+      font-family:Arial;
+    }
+    div{
+      display:inline-block;
+    }
+    .saree-img{ 
+      margin-left:23px;
+      height:231.2px;
+      width:104.2px;
+      object-fit:contain;
+      margin-bottom:10px;
+    }
+    .saree-div{
+      transition:background-color 1s;
+      border-radius:7px;
+      display:inline-block;
+      padding-left:15.5px;
+      padding-bottom:10px;
+      padding-top:10px;
+      background-color:rgba(0,0,0,0.05);
+      width:172px;
+      border:none;
+      cursor:pointer;
+      margin-bottom:5px;
+      }
+    .saree-name{
+    height:40px;
+      overflow:auto;
+      margin-right:10px;
+      font-weight:bold;
+      font-size:16px;
+      font-family:Arial;
+    }
+    .saree-description{
+      overflow:auto;
+      color:gray;
+      font-family:Arial;
+      font-size:14px;
+    }
+    .saree-div:hover{
+      width:172px;
+      padding-left:15.5px;
+      background-color:rgba(0,0,0,0.15);
+      border:none;
+      cursor:pointer;
+    }
+    .saree-div-not-hovered{
+      border-radius:7px;
+     margin-bottom:5px;
+      width:172px;
+      padding-left:15.5px;
+      padding-bottom:10px;
+      padding-top:10px;
+      background-color:rgba(0,0,0,0.05);
+      border:none;
+      cursor:pointer;
+      dipslay:inline-block;
+    }
+    .saree-price{
+      overflow:auto;
+      margin-top:5px;
+      margin-left:3px;
+      font-style:italic;
+      font-family:Arial;
+      color:rgba(0,0,0,0.65);
+    }
+    .add-to-cart-button{
+      transition:box-shadow 1s;
+      background-color:yellow;
+      border:none;
+      font-weight:bold;
+      font-family:Arial;
+      margin-top:7px;
+      margin-left:30px;
+      padding-left:10px;
+      padding-right:10px;
+      padding-top:12px;
+      padding-bottom:12px;
+      border-radius:20px;
+      cursor:pointer;
+    }
+    .add-to-cart-button:hover{
+     box-shadow: 1px 1px 20px 1px black;
+    }
+    .panel{
+      height:33px;
+      top:0;
+      border:none;
+      background-color:rgba(0,0,0,0.15);
+      background-image:transparent;
+      display:block;
+      position:fixed;
+      padding:10px;
+      width:100%;
+      backdrop-filter:blur(3px);
+      z-index:1;
+    }
+    .panelfullsize{
+    top:0;
+      border:none;
+      background-color:rgba(0,0,0,0.15);
+      background-image:transparent;
+      display:block;
+      position:fixed;
+      padding:10px;
+      width:100%;
+      backdrop-filter:blur(3px);
+      z-index:1;
+    }
+    .menu{
+    background: linear-gradient(to left,#032B44,#0097A7);
+        -webkit-background-clip: text;
+        color:transparent;
+      display:inline-block;
+      background-color:transparent;
+      border:none;
+      cursor:pointer;
+      font-size:20px;
+    }
+    .settings{
+      display:none;
+      padding-right:100px;
+      background-color:transparent;
+      border:none;
+      outline:none;
+    }
+    .settings-option{
+       background: linear-gradient(to left,#00FFFF,#FFD7BE);
+        -webkit-background-clip: text;
+        color:transparent;
+      background-color:transparent;
+      margin-top:10px;
+      margin-left:5px;
+      font-size:17px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .settings-option:hover{
+      text-decoration:underline;
+    }
+    .alerts-description{
+      font-style:italic;
+      font-size:15px;
+      color:gray;
+    }
+    .alert-box{
+    width:264px;
+    position:fixed;
+    opacity:1;
+      padding:10px;
+      background-color:white;
+      top:0;
+      right:0;
+    }
+    .fade{
+      animation: fade-out 5s forwards;
+    }
+    @keyframes fade-out {
+    0%{
+    opacity:1;
+    display:block;
+    }
+    100%{
+    opacity:0;
+    display:none;
+    }
+    }
+    .alert{
+      color:red;
+      font-size:20px;
+      font-style:italic;
+      font-weight:bold;
+      font-decoration:underline;
+    }
+    .saree-divs-horizontal{
+      display:grid;
+      grid-template-columns:104.2px 1fr;
+    }
+    .saree-div-horizontal{
+      transition:background-color 1s;
+    padding-left:10px;
+    padding-right:10px;
+    height:231.2px;
+      background-color:rgba(0,0,0,0.05);
+      border:none;
+      cursor:pointer;
+    }
+    .saree-img-horizontal{
+      cursor:pointer;
+      margin-bottom:5px;
+      height:231.2px;
+      width:104.2px;
+      object-fit:contain;
+    } 
+    .saree-name-horizontal{
+    white-space:nowrap;
+    margin-bottom:-15px;
+    width:1233px;
+      overflow:auto;
+      font-weight:bold;
+      font-size:32px;
+      font-family:Arial;
+      display:inline-block;
+    }
+    .saree-description-horizontal{
+      overflow:auto;
+      color:gray;
+      font-family:Arial;
+      font-size:18px;
+      margin-top:20px;
+    }
+    .saree-price-horizontal{
+      overflow:auto;
+      margin-top:5px;
+      margin-left:3px;
+      font-style:italic;
+      font-family:Arial;
+      color:rgba(0,0,0,0.65);
+    }
+    .add-to-cart-button-horizontal{
+      transition:box-shadow 1s;
+      background-color:yellow;
+      border:none;
+      font-weight:bold;
+      font-family:Arial;
+      border-radius:20px;
+      cursor:pointer;
+      font-size:15px;
+      margin-left:373px;
+      margin-right:373px;
+      padding-left:200px;
+      padding-right:200px;
+      padding-top:10px;
+      padding-bottom:10px;
+    }
+    .add-to-cart-button-horizontal:hover{
+     box-shadow: 1px 1px 20px 1px black;
+    }
+    .saree-div-horizontal:hover{
+      background-color:rgba(0,0,0,0.15);
+    }
+    .saree-div-not-hovered-horizontal{
+      padding-left:10px;
+      padding-right:10px;
+      height:231.2px;
+      background-color:rgba(0,0,0,0.05);
+      border:none;
+      cursor:pointer;
+    }
+    .ui-saree-div{
+      width:100%
+    }
+    .ui-saree-img{
+    display:inline-block;
+    cursor:pointer;
+    object-fit:contain;
+    margin-top:50px;
+      width:500px;
+      height:500px;
+    }
+    .ui-saree-name{
+    display:flex;
+    justify-content:center;
+    cursor:pointer;
+      font-size:20px;
+      white-space:wrap;
+      color:rgba(120, 120, 120,0.5);
+      object-fit:contain;
+    }
+    .ui-saree-name:hover{
+      text-decoration:underline;
+      color:black;
+    }
+    .ui-description-title{
+    margin-top:30px;
+    margin-bottom:25px;
+      font-size:40px;
+      font-weight:bold;
+    }
+    .ui-saree-description{
+      display:block;
+      font-size:18px;
+      white-space:wrap;
+      margin-bottom:20px;
+    }
+    .ui-saree-price{
+      font-style:italic;
+      margin-right:30px;
+      font-size:40px;
+      color:rgba(128,128,128,0.9)
+    }
+    .ui-add-to-cart-button{
+      transition:box-shadow 1s;
+    background-color:yellow;
+      border:none;
+      font-weight:bold;
+      font-family:Arial;
+      border-radius:20px;
+      cursor:pointer;
+      font-size:15px;
+      padding-left:400px;
+      padding-right:400px;
+      padding-top:10px;
+      padding-bottom:10px;
+    }
+    .ui-add-to-cart-button:hover{
+      box-shadow: 1px 1px 10px 1px black;
+    }
+    .website-title{
+    position:absolute;
+    display:inline-block;
+    left:50%;
+    transform:translateY(-25px) translateX(-50%);
+    background: linear-gradient(to right, #1ABC9C, #DA70D6);
+        -webkit-background-clip: text;
+        color:transparent;
+        margin-bottom:10px;
+        font-weight:bold;
+        font-size:25px;
+        }
+    .caption{
+          position:absolute;
+    left:50%;
+    transform:translateY(-21px) translateX(35%);
+      background: linear-gradient(to right, #660066, #78493C);
+        -webkit-background-clip: text;
+        color:transparent;
+        font-size:11px;
+    }
+    .saree-div-dark{
+      transition:background-color 1s;
+      border-radius:7px;
+       display:inline-block;
+      padding-left:15.5px;
+      padding-bottom:10px;
+      padding-top:10px;
+      background-color:rgb(0,0,0);
+      width:172px;
+      border:none;
+      cursor:pointer;
+      margin-bottom:5px;
+    }
+    .saree-div-dark:hover{
+      width:172px;
+      padding-left:15.5px;
+      background-color:rgba(128,128,128,0.7);
+      border:none;
+      cursor:pointer;
+    }
+    .saree-div-dark-not-hovered{
+      border-radius:7px;
+      display:inline-block;
+      padding-left:15.5px;
+      padding-bottom:10px;
+      padding-top:10px;
+      background-color:rgb(0,0,0);
+      width:172px;
+      border:none;
+      cursor:pointer;
+      margin-bottom:5px;
+    }
+    .add-to-cart-button-dark{
+      transition:box-shadow 1s;
+ background-color:yellow;
+      border:none;
+      font-weight:bold;
+      font-family:Arial;
+      margin-top:7px;
+      margin-left:30px;
+      padding-left:10px;
+      padding-right:10px;
+      padding-top:12px;
+      padding-bottom:12px;
+      border-radius:20px;
+      cursor:pointer;
+    }
+    .add-to-cart-button-dark:hover{
+      box-shadow: 1px 1px 20px 1px white;
+    }
+    .saree-div-horizontal-dark{
+      transition:background-color 1s;
+       padding-left:10px;
+    padding-right:10px;
+    height:231.2px;
+      background-color:rgb(0,0,0);
+      border:none;
+      cursor:pointer;
+    }
+    .saree-div-horizontal-dark:hover{
+      background-color:rgba(128,128,128,0.7);
+    }
+    .add-to-cart-button-horizontal-dark{
+      transition:box-shadow 1s;
+       background-color:yellow;
+      border:none;
+      font-weight:bold;
+      font-family:Arial;
+      border-radius:20px;
+      cursor:pointer;
+      font-size:15px;
+      margin-left:373px;
+      margin-right:373px;
+      padding-left:200px;
+      padding-right:200px;
+      padding-top:10px;
+      padding-bottom:10px;
+    }
+    .add-to-cart-button-horizontal-dark:hover{
+     box-shadow: 1px 1px 20px 1px white;
+    }
+    .saree-div-horizontal-dark-not-hovered{
+      padding-left:10px;
+    padding-right:10px;
+    height:231.2px;
+      background-color:rgb(0,0,0);
+      border:none;
+      cursor:pointer;
+    }
+      .back{
+        display:inline;
+        position:absolute;
+        left:5px;
+        padding-left:13px;
+        padding:10px;
+        padding-bottom:14px;
+        height:20px;
+        width:22px;
+        justify-content:center;
+          top:53px;
+        margin-left:5px;
+          border-radius:50%;
+          font-size:20px;
+        cursor:pointer;
+        color:gray;
+        z-index:0;
+        }
+      .back:hover{
+                background-color:rgba(0,0,0,0.03)
+        }
+      .ui-add-to-cart-button-dark{
+        transition:box-shadow 1s;
+    background-color:yellow;
+      border:none;
+      font-weight:bold;
+      font-family:Arial;
+      border-radius:20px;
+      cursor:pointer;
+      font-size:15px;
+      padding-left:400px;
+      padding-right:400px;
+      padding-top:10px;
+      padding-bottom:10px;
+    }
+    .ui-add-to-cart-button-dark:hover{
+      box-shadow: 1px 1px 10px 1px white;
+    }
+    .Search{
+      display:inline-block;
+      position:absolute;
+      top:-85px;
+      right:40px;
+      font-size:50px;
+      height:-10px;
+      cursor:pointer;
+      color:#4A68BF;
+      transition:padding 0.5s;
+      }
+      .searchInput{
+        display:none;
+        position:absolute;
+        right:40px;
+        top:3px;
+        background-color: #212121;
+  max-width: 190px;
+  /* text-align: center; */
+  border: 2px solid white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px rgb(249, 255, 85);
+        padding:10px;
+        }
+
+.searchInput:focus {
+  color: rgb(0, 255, 255);
+  background-color: #212121;
+  outline-color: rgb(0, 255, 255);
+  box-shadow: -3px -3px 15px rgb(0, 255, 255);
+  transition: .15s;
+  transition-property: box-shadow;
+}
+    </style>
+    <title>
+     Sarees.com
+    </title>
+  </head>
+  <body>
+  <div class="panel"><button class="menu" onclick="menuOpen();Search3();">&#9776;</button><p class="website-title">HeritageHub</p><p class="caption">Crafting Memories</p>
+  <select class="settings" id="settings">
+  <option class="settings-option" onclick="hidepanel()">Hide Panel</option>
+  <option class="settings-option settings-option2" onclick="SareePanels()">Horizontal Saree Panels</option>
+  <option class="settings-option settings-option3" onclick="darkMode()">Dark Mode</option>
+  <option class="settings-option">1</option>
+  <option class="settings-option">1</option>
+  </select>
+    <p class="Search" onclick="Search()">&#x2315;</p><input class="searchInput" placeholder="Search...">
+  </div>
+   <div class="saree-divs-vertical">
+  </div>
+  <div class="ui-sarees">
+  
+  </div>
+  <div class="saree-divs-horizontal">
+  
+  </div>
+  <div class="alert-box-div"></div>
+  <script>
+  let forSearch;
+  let sareeui;
+  darkModeEnabled=localStorage.getItem('darkMode')
+  o=0;
+  p=0;
+  document.addEventListener('keydown',()=>{
+  if (event.key==='p'){
+  if (!document.querySelector('.panel')){
+    document.querySelector('.panelfullsize').style.display="block";
+    }else{
+        document.querySelector('.panel').style.display="block";
+    }
+      localStorage.removeItem('panelhidden')
+  }
+  })
+  panelhid=localStorage.getItem('panelhidden')
+    if (panelhid==='true'){
+      hidepanel()
+    }
+    productHTML='';
+    const products=[
+      { 
+        productNum:1,
+        productImage:'Saree1.jpg',
+        productName:'Green-Checkered Saree',
+        pricePaise:8999,
+        description:'This is a very good saree.'
+      },
+       {
+        productNum:2,
+        productImage:'Saree1.jpg',
+        productName:'Greeh-Checkered Sareeksjdfhkshfhghgdhfgjdfhgjdhvsfjsdfgvjhdvhfgjsgdfhdgfjgsdhgfhsdghfvhsdvbfsdjfhkdsjfjh',
+        pricePaise:8990,
+        description:'This is a very good saree.'
+      },
+      {
+        productNum:3,
+        productImage:'Saree1.jpg',
+        productName:'Greeh-Checkered Sareeksjdfhksh fhghgdhfgjdfhgjdhvsf jsdfgvjhdvhfgjsgdfhdg fjgsdh gfh sdghfv hsdvb fsdjf hkd sjf jh',
+        pricePaise:8990,
+        description:'This is a very good saree.'
+      },{
+        productNum:4,
+        productImage:'Red-Saree.jpg',
+        productName:'Red-Black Saree',
+        pricePaise:110000,
+        description:'This is a red-black saree.'
+      },{
+        productNum:5,
+        productImage:'Red-Saree.jpg',
+        productName:'Terracotta-Black Saree',
+        pricePaise:110000,
+        description:'This is a red-black saree.'
+      },{
+        productNum:6,
+        productImage:'Red-Saree.jpg',
+        productName:'Orange-Black Saree',
+        pricePaise:110000,
+        description:'This is a red-black saree.'
+      },{
+        productNum:7,
+        productImage:'Red-Saree.jpg',
+        productName:'Cyan-Black Saree',
+        pricePaise:110000,
+        description:'This is a red-black saree.'
+      }
+    ]
+  productHTMLHorizontal='';
+    vertical=true;
+        HTMLFromJs2();
+      function HTMLFromJs(){
+      darkModeEnabled=localStorage.getItem('darkMode')
+      if (vertical===true){
+      localStorage.removeItem('Vertical')
+    products.forEach((product)=>{
+      productHTML+=`
+      <div class="saree-div saree${product.productNum}-div">
+      <img class="saree-img" src="../${product.productImage}">
+      <p class="saree-name saree${product.productNum}-name">${product.productName}</p>
+      <p class="saree-description saree${product.productNum}-description">${product.description}</p>
+      <p class="saree-price saree${product.productNum}-price">&#8377;${(product.pricePaise/100).toFixed(2)}</p>
+      <button class="add-to-cart-button add-to-cart-${product.productNum}">Add to Cart</button>
+      </div>
+      `
+    })
+    document.querySelector('.saree-divs-vertical').style.display="block";
+    document.querySelector('.saree-divs-vertical').innerHTML=productHTML;
+    productHTML='';
+    document.querySelector('.ui-sarees').style.display='none';
+    document.querySelector('.saree-divs-horizontal').style.display="none"
+        sareeDivOnClick()
+    sareeDivOnClickH()
+    if (darkModeEnabled){
+    document.querySelector('.settings-option3').innerHTML="Dark Mode";
+      darkMode()
+    }
+    sareeDivtoAddCart()
+    forSearch='V';
+    }else{
+    darkModeEnabled=localStorage.getItem('darkMode')
+    localStorage.setItem('Vertical','False')
+      document.querySelector('.saree-divs-vertical').style.display="none";
+         products.forEach((product)=>{
+      productHTMLHorizontal+=`<img class="saree-img-horizontal" src="../${product.productImage}">
+          <div class="saree-div-horizontal saree${product.productNum}-div">
+          <p class="saree-name-horizontal saree${product.productNum}-name">${product.productName}</p>
+          <p class="saree-description-horizontal saree${product.productNum}-description">${product.description}</p>
+          <p class="saree-price-horizontal saree${product.productNum}-price">&#8377;${(product.pricePaise/100).toFixed(2)}</p>
+          <button class="add-to-cart-button-horizontal add-to-cart-${product.productNum}">Add to Cart</button>
+          </div>
+          `
+           forSearch='H';
+    })
+    document.querySelector('.saree-divs-horizontal').style.display="grid";
+    document.querySelector('.saree-divs-horizontal').innerHTML=productHTMLHorizontal;
+    productHTMLHorizontal='';
+        document.querySelector('.ui-sarees').style.display='none';
+
+    sareeDivsHtoAdd()
+    }}
+  function SareetoAddCart(){
+      const sareeDivs=document.querySelectorAll('.saree-div')
+    sareeDivs.forEach((sareeDiv)=>{
+      theNumber=sareeDiv.classList.value.replaceAll('saree-','').replaceAll('div','').replaceAll('saree','').replaceAll('-','').replaceAll(' ','').replaceAll('nothovered','')
+            sareeDiv.classList.remove(`saree${theNumber}-div`)
+            sareeDiv.classList.remove('saree-div')
+            sareeDiv.classList.add('saree-div-not-hovered')
+            sareeDiv.classList.add(`saree-${theNumber}`)})
+
+    }
+  function SareetoAddCart2(){
+  const sareeDivs=document.querySelectorAll('.saree-div-not-hovered')
+    sareeDivs.forEach((sareeDiv)=>{
+      theNumber=sareeDiv.classList.value.replaceAll('saree-','').replaceAll('div','').replaceAll('saree','').replaceAll('-','').replaceAll(' ','').replaceAll('nothovered','')
+      sareeDiv.classList.add(`saree${theNumber}-div`)
+      sareeDiv.classList.remove('saree-div-not-hovered')
+      sareeDiv.classList.add('saree-div')
+      sareeDiv.classList.remove(`saree-${theNumber}`)})
+    }
+  function sareeDivtoAddCart(){
+  const sareeDivs=document.querySelectorAll('.saree-div')
+  sareeDivs.forEach((sareeDiv)=>{
+    sareeDivsPN=(sareeDiv.classList.value).replaceAll('saree','').replaceAll('-div','').replaceAll(' ','')
+    sareeDivsAddToCartButton=sareeDiv.querySelector(`.add-to-cart-button`)
+    sareeDivsAddToCartButton.addEventListener('mouseover',SareetoAddCart)
+    sareeDivsAddToCartButton.addEventListener('mouseout',SareetoAddCart2)
+  })
+  if (darkModeEnabled){
+          document.querySelector('.settings-option3').innerHTML="Dark Mode";
+      darkMode()}
+  }
+  sareeDivtoAddCart()
+  optiono=0;
+i=0;
+  function menuOpen(){
+  i++
+  if (i%2){
+  document.querySelector('.settings').style.display="block";
+  document.querySelector('.panel').classList.add('panelfullsize')
+  document.querySelector('.panelfullsize').classList.remove('panel')
+  }else{
+    document.querySelector('.settings').style.display="none";
+    document.querySelector('.panelfullsize').classList.add('panel')
+    document.querySelector('.panel').classList.remove('panelfullsize')
+  }
+  }
+  document.querySelectorAll('.settings-option').forEach((option)=>{
+    optiono++;
+  })
+  document.querySelector('.settings').size=optiono*1.7;
+  function hidepanel(){
+  if (!document.querySelector('.panel')){
+    document.querySelector('.panelfullsize').style.display="none";
+    }else{
+      document.querySelector('.panel').style.display="none";
+    }
+    document.querySelector('.alert-box-div').classList.remove('fade')
+    document.querySelector('.alert-box-div').innerHTML="<div class='alert-box fade'><p class='alerts-description'>Panel has been hidden.</p><p class='alert'>Press 'p' to show the panel.</p></div>";
+    localStorage.setItem('panelhidden','true')
+  }
+  function sareePanelsName(){
+  if (document.querySelector('.saree-divs-vertical').style.display==='none'){
+    document.querySelector('.settings-option2').innerHTML='Vertical Saree Panels'
+    }else{
+    document.querySelector('.settings-option2').innerHTML='Horizontal Saree Panels'
+    }
+}
+sareePanelsName();
+  function SareePanels(){
+  if (document.querySelector('.settings-option2').innerHTML==='Horizontal Saree Panels'){
+    vertical=false;
+    document.querySelector('.settings-option2').innerHTML='Vertical Saree Panels'
+    sareeDivOnClick()
+    sareeDivOnClickH()
+    HTMLFromJs();
+    sareeDivOnClickH()
+    }else{
+      vertical=true;
+    sareeDivOnClick()
+    sareeDivOnClickH()
+        document.querySelector('.settings-option2').innerHTML='Horizontal Saree Panels'
+    HTMLFromJs();
+    sareeDivOnClickH()
+    }
+}
+function HTMLFromJs2(){
+  sareeDivOnClick()
+    sareeDivOnClickH()
+verticalFromLS=localStorage.getItem('Vertical')
+      if (verticalFromLS){
+        vertical=false;
+      }
+      if (vertical===true){
+      localStorage.removeItem('Vertical')
+    products.forEach((product)=>{
+      productHTML+=`
+      <div class="saree-div saree${product.productNum}-div">
+      <img class="saree-img" src="../${product.productImage}">
+      <p class="saree-name saree${product.productNum}-name">${product.productName}</p>
+      <p class="saree-description saree${product.productNum}-description">${product.description}</p>
+  <p class="saree-price saree${product.productNum}-price">&#8377;${(product.pricePaise/100).toFixed(2)}</p>
+      <button class="add-to-cart-button add-to-cart-${product.productNum}">Add to Cart</button>
+      </div>
+      `
+    })
+    document.querySelector('.saree-divs-vertical').style.display="block";
+    document.querySelector('.saree-divs-vertical').innerHTML=productHTML;
+    productHTML='';
+    document.querySelector('.saree-divs-horizontal').style.display="none"
+          sareeDivtoAddCart()
+        forSearch='V'
+    }else{
+    localStorage.setItem('Vertical','False')
+      document.querySelector('.saree-divs-vertical').style.display="none";
+         products.forEach((product)=>{
+      productHTMLHorizontal+=`
+          <img class="saree-img-horizontal" src="../${product.productImage}">
+          <div class="saree-div-horizontal saree${product.productNum}-div">
+          <p class="saree-name-horizontal saree${product.productNum}-name">${product.productName}</p>
+          <p class="saree-description-horizontal saree${product.productNum}-description">${product.description}</p>
+          <p class="saree-price-horizontal saree${product.productNum}-price">&#8377;${(Number(product.pricePaise/100)).toFixed(2)}</p>
+          <button class="add-to-cart-button-horizontal add-to-cart-${product.productNum}">Add to Cart</button>
+          </div>
+          `        
+    })
+    document.querySelector('.saree-divs-horizontal').style.display="grid";
+    document.querySelector('.saree-divs-horizontal').innerHTML=productHTMLHorizontal;
+    productHTMLHorizontal='';
+        sareeDivsHtoAdd()
+        forSearch='H'
+    }
+sareeDivOnClick()
+    sareeDivOnClickH()}
+    function sareeDivsHtoAddCart(){
+      const sareeDivsH=document.querySelectorAll('.saree-div-horizontal')
+  sareeDivsH.forEach((sareeDiv)=>{
+      sareeDiv.classList.remove('saree-div-horizontal')
+        sareeDiv.classList.add('saree-div-not-hovered-horizontal')
+      })
+    }
+    function sareeDivsHtoAddCart2(){
+      const sareeDivsH2=document.querySelectorAll('.saree-div-not-hovered-horizontal')
+  sareeDivsH2.forEach((sareeDiv)=>{
+      sareeDiv.classList.add('saree-div-horizontal')
+      sareeDiv.classList.remove('saree-div-not-hovered-horizontal')
+  })
+    }
+    function sareeDivsHtoAdd(){
+    darkModeEnabled=localStorage.getItem('darkMode')
+    const sareeDivsH=document.querySelectorAll('.saree-div-horizontal')
+  sareeDivsH.forEach((sareeDiv)=>{
+    sareeDivsAddToCartButtonH=sareeDiv.querySelector(`.add-to-cart-button-horizontal`)
+    sareeDivsAddToCartButtonH.addEventListener('mouseover',sareeDivsHtoAddCart)
+    sareeDivsAddToCartButtonH.addEventListener('mouseout',sareeDivsHtoAddCart2)
+  })
+  if (darkModeEnabled){
+  document.querySelector('.settings-option3').innerHTML="Dark Mode";
+      darkMode()
+    }
+  }
+  let sareeNum;
+  let sareeName;
+  let sareeImage;
+  let sareeDescription;
+  let uiHTML='';
+  sareeDivsHtoAdd()
+  function sareeDivOnClick(){
+  AllSareeDivs=document.querySelectorAll('.saree-div');
+    sareeui='V';
+  darkModeEnabled=localStorage.getItem('darkMode')
+  AllSareeDarkDivs=document.querySelectorAll('.saree-div-dark')
+  AllSareeDivs.forEach((div)=>{
+    if (!div.classList.value.includes('dark')){
+    div.addEventListener('click',()=>{
+      if (!div.classList.value.includes('not-hovered')){
+      sareeNum=div.classList.value.replaceAll('-div','').replaceAll('saree','')
+      products.forEach((product)=>{
+        TPNum=product.productNum;
+        if (TPNum==sareeNum){
+          sareeImg=product.productImage;
+          sareeName=product.productName;
+          sareeDescription=product.description;
+          sareePrice=(product.pricePaise/100).toFixed(2);
+          uiHTML=`<div class="ui-saree-div ui-saree${sareeNum}-div"><center><span class="back" onclick="HTMLFromJs2();document.querySelector('.ui-sarees').style.display='none';Backing();">&larr;</span>
+      <img class="ui-saree-img" onclick ="Show('../${sareeImg}')" src="../${sareeImg}"></center>
+      <center>
+      <p class="ui-saree-name ui-saree${product.productNum}-name" onclick="Share(${product.productNum})">${sareeName}</p></center>
+            <p class="ui-saree-price ui-saree${sareeNum}-price">${sareePrice}</p>
+            <center>
+            <button class="ui-add-to-cart-button ui-add-to-cart-${sareeNum}">Add to Cart</button></center>
+      <p class="ui-description-title">Description</p>
+      <p class="ui-saree-description ui-saree${sareeNum}-description">${sareeDescription}</p>
+      </div>`
+        }
+      })
+      document.querySelector('.ui-sarees').innerHTML=uiHTML;
+      document.querySelector('.ui-sarees').style.display="block"
+      document.querySelector('.saree-divs-vertical').style.display="none";
+        setTimeout(()=>{
+        document.querySelector('.settings-option3').innerHTML="Light Mode";
+      darkMode()},1)
+    }
+    })
+  }})
+  }
+  k=0;
+  sareeDivOnClick()
+  function darkMode(){
+  if (document.querySelector('.settings-option3').innerHTML==="Dark Mode"){
+  document.querySelector('.settings-option3').innerHTML="Light Mode"
+  localStorage.setItem('darkMode','true');
+  allSelects=document.querySelectorAll('option')
+  allButtons=document.querySelectorAll('button');
+  allDivs=document.querySelectorAll('div');
+  allPs=document.querySelectorAll('p');
+  document.querySelector('body').style.backgroundColor="black";
+  allDivs.forEach((div,divIndex)=>{
+    if (((div.classList.value).includes('saree-div '))){
+      const sareeDivs=document.querySelectorAll('.saree-div')
+  sareeDivs.forEach((sareeDiv)=>{
+    sareeDivsAddToCartButton=sareeDiv.querySelector(`.add-to-cart-button-dark`)
+    sareeDivsAddToCartButton.removeEventListener('mouseover',SareetoAddCart)
+    sareeDivsAddToCartButton.removeEventListener('mouseout',SareetoAddCart2)
+    div.classList.remove('saree-div')
+    div.classList.add('saree-div-dark')
+  })
+    }else if (div.classList.value.includes('panel')){
+      div.style.backgroundColor="rgba(128,128,128,0.4)"
+    }else if(((div.classList.value).includes('saree-div-horizontal'))){
+      div.classList.remove('saree-div-horizontal')
+      div.classList.add('saree-div-horizontal-dark')
+    }
+    darkDivOnClickH()
+    darkDivOnClick()
+     allButtons.forEach((button,index)=>{8
+      if (!button.classList.value.includes('menu')){
+      if (!((button.classList.value).includes('add-to-cart'))){
+    button.style.color="white";
+    }else{
+    if (((button.parentNode.classList.value).includes('saree-div s'))){
+    button.classList.add('add-to-cart-button-dark')
+    }else if (((button.parentNode.classList.value).includes('saree-div-horizontal'))){
+    button.classList.add('add-to-cart-button-horizontal-dark')    }else if((((button.parentNode).parentNode.classList.value).includes('ui-saree-div'))){
+       button.classList.add('ui-add-to-cart-button-dark') 
+      }
+    }
+    }})
+    allDarkAddButtons=document.querySelectorAll('.add-to-cart-button-dark')
+    allDarkAddButtons.forEach((button)=>{
+      button.addEventListener('mouseover',()=>{
+      AllDarkVDivs=document.querySelectorAll('.saree-div-dark');
+      AllDarkVDivs.forEach((div)=>{
+        div.classList.add('saree-div-dark-not-hovered')
+        div.classList.remove('saree-div-dark')
+      })})})
+      allDarkAddButtons=document.querySelectorAll('.add-to-cart-button-dark')
+    allDarkAddButtons.forEach((button)=>{
+      button.addEventListener('mouseout',()=>{
+      AllDarkVDivs=document.querySelectorAll('.saree-div-dark-not-hovered');
+      AllDarkVDivs.forEach((div)=>{
+        div.classList.add('saree-div-dark')
+        div.classList.remove('saree-div-dark-not-hovered')
+      })})})
+      allDarkAddButtonsH=document.querySelectorAll('.add-to-cart-button-horizontal-dark')
+    allDarkAddButtonsH.forEach((button)=>{
+      button.addEventListener('mouseover',()=>{
+      AllDarkHDivs=document.querySelectorAll('.saree-div-horizontal-dark');
+      AllDarkHDivs.forEach((div)=>{
+        div.classList.add('saree-div-horizontal-dark-not-hovered')
+        div.classList.remove('saree-div-horizontal-dark')
+      })})})
+      allDarkAddButtonsH=document.querySelectorAll('.add-to-cart-button-horizontal-dark')
+    allDarkAddButtonsH.forEach((button)=>{
+      button.addEventListener('mouseout',()=>{
+      AllDarkHDivs=document.querySelectorAll('.saree-div-horizontal-dark-not-hovered');
+      AllDarkHDivs.forEach((div)=>{
+        div.classList.add('saree-div-horizontal-dark')
+        div.classList.remove('saree-div-horizontal-dark-not-hovered')
+      })})})
+  })
+  allPs.forEach((p)=>{
+  if (!p.classList.value.includes('website-title')&&!p.classList.value.includes('caption')&&!(p.classList.value.includes('Search'))){
+    p.style.color="white";}
+  })
+  allSelects.forEach((select)=>{
+  if (!select.classList.value.includes('settings-option')){
+    select.style.color="white";
+  }})
+  darkDivOnClick()}else{
+  document.querySelector('.settings-option3').innerHTML="Dark Mode"
+  localStorage.removeItem('darkMode');
+  allSelects=document.querySelectorAll('option')
+  allButtons=document.querySelectorAll('button');
+  allDivs=document.querySelectorAll('div');
+  allPs=document.querySelectorAll('p');
+  document.querySelector('body').style.backgroundColor="white";
+  allDivs.forEach((div)=>{
+    if (((div.classList.value).includes('saree-div-dark'))){
+      div.classList.remove('saree-div-dark')
+      TEMP=div.classList.value
+      div.classList.value=""
+      div.classList.add('saree-div')
+      div.classList.add(TEMP)
+      sareeDivtoAddCart()
+    }else if (div.classList.value.includes('panel')){
+      div.style.backgroundColor="rgba(0, 0, 0, 0.15)"
+    }else if(((div.classList.value).includes('saree-div-horizontal-dark'))){
+      div.classList.remove('saree-div-horizontal-dark')
+      div.classList.remove('saree-div-horizontal-dark-not-hovered')
+      div.classList.add('saree-div-horizontal')
+    }
+        sareeDivOnClickH()
+    sareeDivOnClick();
+     allButtons.forEach((button,index)=>{
+      if (!button.classList.value.includes('menu')){
+      if (!((button.classList.value).includes('add-to'))){
+    button.style.color="black";
+    }else{
+    if (((button.parentNode.classList.value).includes('saree-div s'))){
+    button.classList.remove('add-to-cart-button-dark')
+    }
+    if (((button.parentNode.classList.value).includes('saree-div-horizontal'))){
+    button.classList.remove('add-to-cart-button-horizontal-dark')    
+    }
+    }
+    sareeDivsHtoAdd()
+    }})
+    sareeDivOnClickH()
+    sareeDivOnClick();
+  })
+  allPs.forEach((p)=>{
+  if (!p.classList.value.includes('website-title')||!p.classList.value.includes('caption')){
+    p.removeAttribute('style')
+}
+  })
+  allSelects.forEach((select)=>{
+  if (!select.classList.value.includes('settings-option')){
+    select.removeAttribute('style');
+  }})}}
+  function sareeDivOnClickH(){
+  AllSareeDivsH=document.querySelectorAll('.saree-div-horizontal');
+  sareeui='H';
+  darkModeEnabled=localStorage.getItem('darkMode')
+  AllSareeDivsH.forEach((div)=>{
+    if (!(div.classList.value).includes('dark')){
+    div.addEventListener('click',()=>{
+      if (!div.classList.value.includes('not-hovered')){
+      sareeNumH=div.classList.value.replaceAll('-div','').replaceAll('saree','').replaceAll('-horizontal','').replaceAll(' ','')
+      products.forEach((product)=>{
+        TPNumH=product.productNum;
+        if (TPNumH==sareeNumH){
+          div.id=`saree${sareeNumH}-js-div`;
+          sareeImgH=product.productImage;
+          sareeNameH=product.productName;
+          sareeDescriptionH=product.description;
+          sareePriceH=(product.pricePaise/100).toFixed(2);
+          uiHTML=`<div class="ui-saree-div ui-saree${sareeNumH}-div"><span class="back" onclick="HTMLFromJs2();document.querySelector('.ui-sarees').style.display='none';Backing();">&larr;</span>
+     <center> <img class="ui-saree-img" onclick ="Show('../${sareeImgH}')" src="../${sareeImgH}"></center>
+      <center><p class="ui-saree-name ui-saree${product.productNum}-name">${sareeNameH}</p></center>
+            <p class="ui-saree-price ui-saree${sareeNum}-price">&#8377;${sareePriceH}</p>
+            <center><button class="ui-add-to-cart-button ui-add-to-cart-${sareeNumH}">Add to Cart</button></center>
+      <p class="ui-description-title">Description</p>
+      <p class="ui-saree-description ui-saree${sareeNumH}-description">${sareeDescriptionH}</p>
+      </div>`
+        }
+        })
+      document.querySelector('.ui-sarees').innerHTML=uiHTML;
+      document.querySelector('.saree-divs-vertical').style.display="none";
+      document.querySelector('.ui-sarees').style.display="block"
+     /* document.querySelector('.ui-saree-img').addEventListener('touchmove',(e)=>{
+        touch=e.touches[0]
+        if (touch.clientX<e.target.offsetLeft){
+            console.log('Les go')
+          }
+        })*/
+      document.querySelector('.saree-divs-horizontal').style.display="none"
+        setTimeout(()=>{
+          document.querySelector('.settings-option3').innerHTML="Light Mode";
+      darkMode()},1)
+        }
+    })}})
+    }
+    function Show(param){
+      link=document.createElement('a')
+      link.href=param
+      link.target="_blank"
+      link.click()
+    }
+  sareeDivOnClickH()
+  sareeDivOnClick()
+    function darkDivOnClick(){
+      allDarkDivs=document.querySelectorAll('.saree-div-dark')
+      sareeui="DV"
+  allDarkDivs.forEach((div)=>{
+div.addEventListener('click',()=>{
+  if (div.classList.value.includes('dark')){
+      if (!div.classList.value.includes('not-hovered')){
+      sareeNumH=div.classList.value.replaceAll('-div','').replaceAll('saree','').replaceAll('-horizontal','').replaceAll(' ','').replaceAll('dark','').replaceAll('-','')
+      products.forEach((product)=>{
+        TPNumH=product.productNum;
+        if (TPNumH==sareeNumH){
+          sareeImgH=product.productImage;
+          sareeNameH=product.productName;
+          sareeDescriptionH=product.description;
+          sareePriceH=(product.pricePaise/100).toFixed(2);
+          uiHTML=`<div class="ui-saree-div ui-saree${sareeNumH}-div"><span class="back" onclick="HTMLFromJs2();document.querySelector('.ui-sarees').style.display='none';Backing();">&larr;</span>
+     <center> <img class="ui-saree-img" onclick ="Show('../${sareeImgH}')" src="../${sareeImgH}"></center>
+      <center><p class="ui-saree-name ui-saree${product.productNum}-name">${sareeNameH}</p></center>
+            <p class="ui-saree-price ui-saree${sareeNum}-price">&#8377;${sareePriceH}</p>
+            <center><button class="ui-add-to-cart-button ui-add-to-cart-${sareeNumH}">Add to Cart</button></center>
+      <p class="ui-description-title">Description</p>
+      <p class="ui-saree-description ui-saree${sareeNumH}-description">${sareeDescriptionH}</p>
+      </div>`
+        }
+        })
+      document.querySelector('.ui-sarees').innerHTML=uiHTML;
+      document.querySelector('.saree-divs-vertical').style.display="none";
+      document.querySelector('.ui-sarees').style.display="block"
+     /* document.querySelector('.ui-saree-img').addEventListener('touchmove',(e)=>{
+        touch=e.touches[0]
+        if (touch.clientX<e.target.offsetLeft){
+            console.log('Les go')
+          }
+        })*/
+      document.querySelector('.saree-divs-horizontal').style.display="none"
+        setTimeout(()=>{
+    document.querySelector('.settings-option3').innerHTML="Dark Mode";
+      darkMode()},1)
+        }
+    }})
+    })
+      }
+    darkDivOnClick()
+function darkDivOnClickH(){
+      allDarkDivsH=document.querySelectorAll('.saree-div-horizontal-dark')
+    sareeui="DH"
+  allDarkDivsH.forEach((div)=>{
+div.addEventListener('click',()=>{
+  if (div.classList.value.includes('dark')){
+      if (!div.classList.value.includes('not-hovered')){
+      sareeNumH=div.classList.value.replaceAll('-div','').replaceAll('saree','').replaceAll('-horizontal','').replaceAll(' ','').replaceAll('dark','').replaceAll('-','')
+      products.forEach((product)=>{
+        TPNumH=product.productNum;
+        if (TPNumH==sareeNumH){
+          sareeImgH=product.productImage;
+          sareeNameH=product.productName;
+          sareeDescriptionH=product.description;
+          sareePriceH=(product.pricePaise/100).toFixed(2);
+          uiHTML=`<div class="ui-saree-div ui-saree${sareeNumH}-div"><span class="back" onclick="HTMLFromJs2();document.querySelector('.ui-sarees').style.display='none';Backing();">&larr;</span>
+     <center> <img class="ui-saree-img" onclick ="Show('../${sareeImgH}')" src="../${sareeImgH}"></center>
+      <center><p class="ui-saree-name ui-saree${product.productNum}-name">${sareeNameH}</p></center>
+            <p class="ui-saree-price ui-saree${sareeNum}-price">&#8377;${sareePriceH}</p>
+            <center><button class="ui-add-to-cart-button ui-add-to-cart-${sareeNumH}">Add to Cart</button></center>
+      <p class="ui-description-title">Description</p>
+      <p class="ui-saree-description ui-saree${sareeNumH}-description">${sareeDescriptionH}</p>
+      </div>`
+        }
+        })
+      document.querySelector('.ui-sarees').innerHTML=uiHTML;
+      document.querySelector('.saree-divs-vertical').style.display="none";
+      document.querySelector('.ui-sarees').style.display="block"
+     /* document.querySelector('.ui-saree-img').addEventListener('touchmove',(e)=>{
+        touch=e.touches[0]
+        if (touch.clientX<e.target.offsetLeft){
+            console.log('Les go')
+          }
+        })*/
+      document.querySelector('.saree-divs-horizontal').style.display="none"
+        setTimeout(()=>{
+    document.querySelector('.settings-option3').innerHTML="Dark Mode";
+      darkMode()
+          },10)
+        }
+    }})
+    })
+      }
+    darkDivOnClickH()
+    function Backing(){
+      if (sareeui=='H'){
+        document.querySelector('.saree-divs-horizontal').style.display="grid";
+        }else if (sareeui='V'){
+                document.querySelector('.saree-divs-vertical').style.display="block";
+        }else if (sareeui="DH"){
+               document.querySelector('.saree-divs-vertical').style.display="block";
+        }else if (sareeui="DV"){
+               document.querySelector('.saree-divs-vertical').style.display="block";
+        }
+      TEMP=(document.querySelector('.ui-saree-div').classList.value).replaceAll('ui-saree-div ui-saree','').replaceAll('-div','')
+      console.log("Yes")
+        console.log(TEMP)
+      window.scrollTo(0,(document.querySelector(`.saree${TEMP}-div`)).offsetTop)
+      }
+    let popoi=0;
+    function Search(){
+      popoi++;
+      if (popoi%2){
+        document.querySelector('.Search').style.paddingRight="220px";
+        document.querySelector('.searchInput').style.display="block"
+        document.querySelector('.searchInput').addEventListener('keydown',()=>{
+          if (event.key==="Enter"){
+            Search2()
+            }
+          })
+  }else{
+                Search2();
+        }
+      }
+    function Search2(){
+      popoi=0;
+        searchInput=document.querySelector('.searchInput')
+        textSearch=searchInput.value;
+      if (textSearch!==''){
+        products.forEach((product)=>{
+          if (product.productName.includes(textSearch)){
+            console.log(textSearch)
+            console.log('popopopopoehrhgegrhgerw')
+            AllDivs=document.querySelectorAll('div')
+            AllDivs.forEach((div)=>{
+              if (forSearch=='H'){
+              if (div.classList.value.includes('horizontal')&&div.classList.value.includes(`saree${product.productNum}-div`)){
+              window.scrollTo(0,(div.offsetTop))
+                }
+              }else{
+                  if (!div.classList.value.includes('horizontal')&&div.classList.value.includes(`saree${product.productNum}-div`)){
+              window.scrollTo(0,(div.offsetTop))
+                }
+                }
+            return;
+            })
+            }
+          }) 
+      document.querySelector('.Search').style.paddingRight="0px";
+          document.querySelector('.searchInput').style.display="none"
+        }else{
+        document.querySelector('.Search').style.paddingRight="0px";
+          document.querySelector('.searchInput').style.display="none"
+    }
+      }
+    function Search3(){
+      popoi=0;
+        document.querySelector('.Search').style.paddingRight="0px";
+          document.querySelector('.searchInput').style.display="none"
+      }
+    let Cart=[];
+    allDivs=document.querySelectorAll('div')
+    localStorage.removeItem('cart')
+    allDivs.forEach((div)=>{
+      div.addEventListener('click',()=>{
+      if (div.classList.value.includes('not-hovered')){
+          TEMP=div.classList.value.replaceAll('-','').replaceAll(' ','').replaceAll('dark','').replaceAll('div','').replaceAll('saree','').replaceAll('horizontal','').replaceAll('not','').replaceAll('hovered','')
+          }
+        })
+    })
+    let shareName;
+    let shareImage;
+    let shareMessage;
+    function Share(param){
+        if (navigator.share) {
+        navigator.share({
+          title: 'Check this out!',
+          text: 'This is some text I wanted to share with you.', // URL to share
+          files: [
+            new File(
+              [new Blob(['image content'])],
+              '../Red-Saree.jpg',
+              { type: 'image/jpeg' }
+            )
+          ]
+        })
+        .then(() => console.log('Shared successfully!'))
+        .catch((error) => console.log('Abort?'));
+      } else {
+        alert('Your browser does not support the Web Share API');
+      }
+      }
+  </script>
+</html>
